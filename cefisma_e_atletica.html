@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+I<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -56,7 +56,7 @@
     <script>
         // Dados simulados dos arquivos (em uma aplicação real, isso viria de um backend/API)
         const files = [
-            { name: 'Lista_Autorizados_CEFISMA_2025.pdf', description: 'Lista de membros do CEFISMA autorizados a acessar áreas restritas.' },
+            { name: 'CEFISMA Lista Atualizada.pdf', description: 'Lista de diretores do CEFISMA autorizados a retirar as chaves.' },
             { name: 'Membros_Atletica_Acesso_Noturno.xlsx', description: 'Relação de membros da Atlética com permissão de acesso noturno.' },
             { name: 'Termos_Responsabilidade_CEFISMA.pdf', description: 'Termos de responsabilidade assinados por membros do CEFISMA.' },
             { name: 'Treinadores_Autorizados_Atletica.docx', description: 'Documento com nomes dos treinadores autorizados da Atlética.' },
@@ -64,9 +64,7 @@
 
         // Função para simular a abertura de um arquivo (sem modal)
         function simulateFileOpen(fileName, fileDescription) {
-            alert(`Você clicou em: ${fileName}\nDescrição: ${fileDescription}\n\nEm uma aplicação real, este arquivo seria aberto ou baixado diretamente.`);
-            // Para realmente abrir ou baixar um arquivo, você usaria window.open() ou criaria um link para download.
-            // Exemplo (se o arquivo estivesse na mesma pasta): window.open(fileName, '_blank');
+           window.open(fileName, '_blank');
         }
 
         // Carrega os arquivos na lista ao carregar a página
@@ -77,10 +75,14 @@
                 const fileItem = document.createElement('div');
                 fileItem.className = 'file-item p-4 bg-gray-100 rounded-lg shadow-sm flex items-center justify-between';
                 fileItem.innerHTML = `
-                    <div>
-                        <p class="font-semibold text-lg text-gray-800">${file.name}</p>
-                        <p class="text-sm text-gray-600">${file.description}</p>
-                    </div>
+                   <div>
+        <p class="font-semibold text-lg text-gray-800">
+            <a href="${file.name}" target="_blank" class="text-blue-600 hover:underline">
+                ${file.name}
+            </a>
+        </p>
+        <p class="text-sm text-gray-600">${file.description}</p>
+    </div>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
