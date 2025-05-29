@@ -61,6 +61,7 @@
         // ATENÇÃO: SUBSTITUA "zeladoria2025" PELA SENHA REAL QUE VOCÊ QUER USAR.
         // Lembre-se, esta senha é visível no código-fonte do navegador e NÃO É SEGURA.
         const SENHA_CORRETA = "zeladoria2025"; // <--- ALTERE ESTA SENHA!
+        const ACESSO_CONCEDIDO_KEY = "acessoConcedido"; // Chave para localStorage
 
         // Função para exibir o prompt de senha
         function pedirSenha() {
@@ -70,6 +71,8 @@
             if (senhaDigitada === SENHA_CORRETA) {
                 // Se a senha estiver correta, remove a classe que oculta o conteúdo
                 document.body.classList.remove('hidden-content');
+                // Adiciona um item ao localStorage para lembrar que o acesso foi concedido
+                localStorage.setItem(ACESSO_CONCEDIDO_KEY, "true");
             } else {
                 // Se a senha estiver incorreta, exibe uma mensagem de erro e tenta novamente
                 alert("Senha incorreta. Acesso negado.");
@@ -81,9 +84,15 @@
 
         // Garante que o prompt de senha apareça assim que o conteúdo for carregado
         document.addEventListener('DOMContentLoaded', () => {
-            // Adiciona a classe para esconder o corpo antes de pedir a senha
-            document.body.classList.add('hidden-content');
-            pedirSenha(); // Chama a função para pedir a senha
+            // Verifica se o acesso já foi concedido em uma sessão anterior
+            if (localStorage.getItem(ACESSO_CONCEDIDO_KEY) === "true") {
+                // Se sim, remove a classe que oculta o conteúdo imediatamente
+                document.body.classList.remove('hidden-content');
+            } else {
+                // Se não, adiciona a classe para esconder o corpo e pede a senha
+                document.body.classList.add('hidden-content');
+                pedirSenha(); // Chama a função para pedir a senha
+            }
         });
     </script>
 </head>
