@@ -51,9 +51,43 @@
             text-decoration: none;
             cursor: pointer;
         }
+        /* SEÇÃO ADICIONADA: ESTILO PARA ESCONDER CONTEÚDO */
+        body.hidden-content {
+            display: none;
+        }
     </style>
+    <script>
+        // Define a senha desejada
+        // ATENÇÃO: SUBSTITUA "zeladoria2025" PELA SENHA REAL QUE VOCÊ QUER USAR.
+        // Lembre-se, esta senha é visível no código-fonte do navegador e NÃO É SEGURA.
+        const SENHA_CORRETA = "zeladoria2025"; // <--- ALTERE ESTA SENHA!
+
+        // Função para exibir o prompt de senha
+        function pedirSenha() {
+            let senhaDigitada = prompt("Por favor, digite a senha para acessar a Seção de Vigilância:");
+
+            // Verifica se a senha está correta
+            if (senhaDigitada === SENHA_CORRETA) {
+                // Se a senha estiver correta, remove a classe que oculta o conteúdo
+                document.body.classList.remove('hidden-content');
+            } else {
+                // Se a senha estiver incorreta, exibe uma mensagem de erro e tenta novamente
+                alert("Senha incorreta. Acesso negado.");
+                // Redireciona para uma página em branco ou recarrega para pedir a senha novamente
+                // window.location.reload(); // Descomente esta linha para recarregar a página
+                window.location.href = "about:blank"; // Redireciona para uma página em branco
+            }
+        }
+
+        // Garante que o prompt de senha apareça assim que o conteúdo for carregado
+        document.addEventListener('DOMContentLoaded', () => {
+            // Adiciona a classe para esconder o corpo antes de pedir a senha
+            document.body.classList.add('hidden-content');
+            pedirSenha(); // Chama a função para pedir a senha
+        });
+    </script>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="hidden-content flex flex-col min-h-screen">
 
     <header class="bg-gradient-to-r from-blue-800 to-blue-950 text-white p-6 shadow-lg">
         <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
@@ -86,7 +120,7 @@
                     </button>
                 </a>
 
-                <a href="relatório_de_ocorrencias.html" class="block">
+                <a href="relatorios_ocorrencias.html" class="block">
                     <button class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1">
                         Relatórios de Ocorrências
                     </button>
@@ -98,7 +132,7 @@
                     </button>
                 </a>
 
-                <a href="cefisma_e_atletica.html" class="block">
+                <a href="autorizados_cefisma_atletica.html" class="block">
                     <button class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-4 px-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1">
                         Autorizados CEFISMA/Atlética
                     </button>
@@ -110,7 +144,7 @@
                     </button>
                 </a>
 
-                <a href="contato_e_emergencia.html" class="block">
+                <a href="contatos_emergencias.html" class="block">
                     <button class="w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-4 px-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1">
                         Contatos e Emergências
                     </button>
