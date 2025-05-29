@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+        <script>
+// Define a senha desejada
+const SENHA_CORRETA = "zeladoria"; // <-- MUITO IMPORTANTE: ALTERE ISSO!
+
+// Função para exibir o prompt de senha
+function pedirSenha() {
+    let senhaDigitada = prompt("Por favor, digite a senha para acessar esta página:");
+
+    // Verifica se a senha está correta
+    if (senhaDigitada === SENHA_CORRETA) {
+        // Se a senha estiver correta, remove o "bloqueio" e exibe o conteúdo
+        document.body.style.display = 'block'; // Ou remove a classe de ocultação
+    } else {
+        // Se a senha estiver incorreta, exibe uma mensagem de erro e tenta novamente
+        alert("Senha incorreta. Acesso negado.");
+        window.location.reload(); // Recarrega a página para pedir a senha novamente
+        // Ou você pode redirecionar para outra página, etc.
+    }
+}
+
+// Bloqueia o corpo da página por padrão até que a senha seja digitada
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.style.display = 'none'; // Esconde o conteúdo da página
+    pedirSenha(); // Chama a função para pedir a senha
+});
+    <script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seção de Vigilância - Instituto de Física</title>
@@ -135,32 +161,6 @@
         </div>
     </div>
 
-    <script>
-// Define a senha desejada
-const SENHA_CORRETA = "zeladoria"; // <-- MUITO IMPORTANTE: ALTERE ISSO!
-
-// Função para exibir o prompt de senha
-function pedirSenha() {
-    let senhaDigitada = prompt("Por favor, digite a senha para acessar esta página:");
-
-    // Verifica se a senha está correta
-    if (senhaDigitada === SENHA_CORRETA) {
-        // Se a senha estiver correta, remove o "bloqueio" e exibe o conteúdo
-        document.body.style.display = 'block'; // Ou remove a classe de ocultação
-    } else {
-        // Se a senha estiver incorreta, exibe uma mensagem de erro e tenta novamente
-        alert("Senha incorreta. Acesso negado.");
-        window.location.reload(); // Recarrega a página para pedir a senha novamente
-        // Ou você pode redirecionar para outra página, etc.
-    }
-}
-
-// Bloqueia o corpo da página por padrão até que a senha seja digitada
-document.addEventListener('DOMContentLoaded', () => {
-    document.body.style.display = 'none'; // Esconde o conteúdo da página
-    pedirSenha(); // Chama a função para pedir a senha
-});
-    <script>
     <script>
         // Funções do modal (mantidas para uso futuro, se necessário)
         function showModal(title, message) {
