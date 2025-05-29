@@ -1,178 +1,110 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-        <script>
-// Define a senha desejada
-const SENHA_CORRETA = "zeladoria"; // <-- MUITO IMPORTANTE: ALTERE ISSO!
-
-// Função para exibir o prompt de senha
-function pedirSenha() {
-    let senhaDigitada = prompt("Por favor, digite a senha para acessar esta página:");
-
-    // Verifica se a senha está correta
-    if (senhaDigitada === SENHA_CORRETA) {
-        // Se a senha estiver correta, remove o "bloqueio" e exibe o conteúdo
-        document.body.style.display = 'block'; // Ou remove a classe de ocultação
-    } else {
-        // Se a senha estiver incorreta, exibe uma mensagem de erro e tenta novamente
-        alert("Senha incorreta. Acesso negado.");
-        window.location.reload(); // Recarrega a página para pedir a senha novamente
-        // Ou você pode redirecionar para outra página, etc.
-    }
-}
-
-// Bloqueia o corpo da página por padrão até que a senha seja digitada
-document.addEventListener('DOMContentLoaded', () => {
-    document.body.style.display = 'none'; // Esconde o conteúdo da página
-    pedirSenha(); // Chama a função para pedir a senha
-});
-    <script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seção de Vigilância - Instituto de Física</title>
+    <title>Repositório de Documentos - IF</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f2f5; /* Cor de fundo suave */
-        }
-        /* Estilo para o modal de mensagem (mantido caso seja útil para outras interações futuras) */
-        .modal {
-            display: none; /* Escondido por padrão */
-            position: fixed; /* Posição fixa na tela */
-            z-index: 1000; /* Acima de outros elementos */
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto; /* Habilita scroll se necessário */
-            background-color: rgba(0,0,0,0.4); /* Fundo semi-transparente */
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-content {
-            background-color: #ffffff;
-            margin: auto;
-            padding: 24px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-            position: relative;
-        }
-        .close-button {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            color: #aaa;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .close-button:hover,
-        .close-button:focus {
-            color: #333;
-            text-decoration: none;
-            cursor: pointer;
+        /* CSS para esconder o corpo da página por padrão */
+        body.hidden-content {
+            display: none;
         }
     </style>
-</head>
-<body class="flex flex-col min-h-screen">
-
-    <header class="bg-gradient-to-r from-blue-800 to-blue-950 text-white p-6 shadow-lg">
-        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
-            <div class="mb-4 md:mb-0 md:mr-6">
-                <img src="https://web.if.usp.br/ifusp/sites/portal.if.usp.br.ifusp/themes/ifusp_tema/logo.png" alt="Logo do Instituto de Física" class="w-24 h-24 rounded-full border-4 border-blue-600 shadow-md">
-            </div>
-            <div class="text-center md:text-left flex-grow">
-                <h1 class="text-4xl font-bold mb-1">Seção de Vigilância</h1>
-                <p class="text-xl font-light">Instituto de Física</p>
-            </div>
-        </div>
-    </header>
-
-    <main class="flex-grow container mx-auto p-6 md:p-10">
-        <section class="bg-white rounded-xl shadow-lg p-6 mb-8">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Bem-vindo à Seção de Vigilância</h2>
-            <p class="text-gray-700 leading-relaxed">
-                A Seção de Vigilância do Instituto de Física é responsável por garantir a segurança das instalações,
-                o monitoramento de equipamentos e o controle de acesso, contribuindo para um ambiente de trabalho e estudo seguro.
-                Utilize os botões abaixo para acessar os repositórios de arquivos e documentos importantes.
-            </p>
-        </section>
-
-        <section class="bg-white rounded-xl shadow-lg p-6">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Repositórios de Arquivos</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <a href="informes_gerais.html" class="block">
-                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1">
-                        Informes Gerais
-                    </button>
-                </a>
-
-                <a href="relatório_de_ocorrencias.html" class="block">
-                    <button class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1">
-                        Relatórios de Ocorrências
-                    </button>
-                </a>
-
-                <a href="procedimentos_operacionais.html" class="block">
-                    <button class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1">
-                        Procedimentos Operacionais
-                    </button>
-                </a>
-
-                <a href="cefisma_e_atletica.html" class="block">
-                    <button class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-4 px-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1">
-                        Autorizados CEFISMA/Atlética
-                    </button>
-                </a>
-
-                <a href="autorizados_obras.html" class="block">
-                    <button class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1">
-                        Autorizados OBRAS
-                    </button>
-                </a>
-
-                <a href="contato_e_emergencia.html" class="block">
-                    <button class="w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-4 px-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1">
-                        Contatos e Emergências
-                    </button>
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-gray-800 text-white p-4 text-center mt-8 shadow-inner">
-        <div class="container mx-auto">
-            <p>&copy; 2025 Instituto de Física. Todos os direitos reservados.</p>
-            <p class="text-sm mt-2">Para mais informações, entre em contato com a Seção de Vigilância.</p>
-        </div>
-    </footer>
-
-    <div id="messageModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeModal()">&times;</span>
-            <h3 class="text-xl font-semibold mb-4 text-gray-800" id="modalTitle"></h3>
-            <p class="text-gray-700" id="modalMessage"></p>
-            <button class="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg" onclick="closeModal()">Fechar</button>
-        </div>
-    </div>
 
     <script>
-        // Funções do modal (mantidas para uso futuro, se necessário)
-        function showModal(title, message) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalMessage').innerText = message;
-            document.getElementById('messageModal').style.display = 'flex';
+        // --- INÍCIO DO CÓDIGO DA SENHA ---
+
+        // Define a senha desejada
+        // ATENÇÃO: SUBSTITUA "sua_senha_secreta_aqui" PELA SENHA REAL QUE VOCÊ QUER USAR.
+        // Lembre-se, esta senha é visível no código-fonte do navegador.
+        const SENHA_CORRETA = "zeladoria";
+
+        // Função para exibir o prompt de senha
+        function pedirSenha() {
+            let senhaDigitada = prompt("Por favor, digite a senha para acessar o Repositório de Documentos:");
+
+            // Verifica se a senha está correta
+            if (senhaDigitada === SENHA_CORRETA) {
+                // Se a senha estiver correta, remove a classe que oculta o conteúdo
+                document.body.classList.remove('hidden-content');
+            } else {
+                // Se a senha estiver incorreta, exibe uma mensagem de erro e tenta novamente
+                alert("Senha incorreta. Acesso negado.");
+                // Redireciona para fora ou recarrega a página para pedir novamente
+                // window.location.reload(); // Descomente para recarregar a página e pedir a senha novamente
+                window.location.href = "about:blank"; // Redireciona para uma página em branco
+            }
         }
 
-        function closeModal() {
-            document.getElementById('messageModal').style.display = 'none';
-        }
-        // Os event listeners para os botões foram removidos daqui, pois agora eles são links diretos.
+        // Garante que o prompt de senha apareça assim que o conteúdo for carregado
+        document.addEventListener('DOMContentLoaded', () => {
+            // Adiciona a classe para esconder o corpo antes de pedir a senha
+            document.body.classList.add('hidden-content');
+            pedirSenha(); // Chama a função para pedir a senha
+        });
+
+        // --- FIM DO CÓDIGO DA SENHA ---
     </script>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <nav class="bg-blue-800 p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-white text-2xl font-bold">Repositório de Documentos - IF</a>
+            <div class="flex space-x-4">
+                <a href="index.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Início</a>
+                <a href="informes_gerais.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Informes Gerais</a>
+                <a href="planos_protocolos.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Planos e Protocolos</a>
+                <a href="contatos_emergencias.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contatos e Emergências</a>
+                </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto mt-8 p-6 bg-white rounded-lg shadow-xl">
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-6 text-center">Bem-vindo ao Repositório de Documentos</h1>
+        <p class="text-lg text-gray-700 leading-relaxed mb-8 text-center">
+            Este é o ponto central para acesso rápido e organizado a todos os documentos importantes da Zeladoria do Instituto de Física. Navegue pelas categorias para encontrar as informações que você precisa.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <a href="informes_gerais.html" class="block">
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 ease-in-out transform hover:-translate-y-1">
+                    <div class="text-blue-600 text-5xl mb-4 text-center">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-2 text-center">Informes Gerais</h2>
+                    <p class="text-gray-600 text-center">Avisos, comunicados e circulares importantes para a equipe e visitantes.</p>
+                </div>
+            </a>
+
+            <a href="planos_protocolos.html" class="block">
+                <div class="bg-green-50 border border-green-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 ease-in-out transform hover:-translate-y-1">
+                    <div class="text-green-600 text-5xl mb-4 text-center">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-2 text-center">Planos e Protocolos</h2>
+                    <p class="text-gray-600 text-center">Documentos sobre planos de segurança, manutenção e procedimentos operacionais.</p>
+                </div>
+            </a>
+
+            <a href="contatos_emergencias.html" class="block">
+                <div class="bg-red-50 border border-red-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 ease-in-out transform hover:-translate-y-1">
+                    <div class="text-red-600 text-5xl mb-4 text-center">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-2 text-center">Contatos e Emergências</h2>
+                    <p class="text-gray-600 text-center">Lista de contatos úteis, telefones de emergência e instruções.</p>
+                </div>
+            </a>
+
+            </div>
+    </div>
+
+    <footer class="bg-blue-800 text-white text-center p-4 mt-8">
+        <p>&copy; 2025 Zeladoria IF. Todos os direitos reservados.</p>
+    </footer>
+
 </body>
 </html>
