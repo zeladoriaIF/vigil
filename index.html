@@ -8,19 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        /* CSS para esconder o corpo da página por padrão */
         body.hidden-content {
             display: none;
         }
     </style>
 
     <script>
-        // --- INÍCIO DO CÓDIGO DA SENHA ---
-
         // Define a senha desejada
-        // ATENÇÃO: SUBSTITUA "sua_senha_secreta_aqui" PELA SENHA REAL QUE VOCÊ QUER USAR.
-        // Lembre-se, esta senha é visível no código-fonte do navegador.
-        const SENHA_CORRETA = "zeladoria";
+        // ATENÇÃO: SUBSTITUA "zeladoria2025" PELA SENHA REAL QUE VOCÊ QUER USAR.
+        // Lembre-se, esta senha é visível no código-fonte do navegador e NÃO É SEGURA.
+        const SENHA_CORRETA = "zeladoria2025"; // <--- ALTERE ESTA SENHA!
 
         // Função para exibir o prompt de senha
         function pedirSenha() {
@@ -33,8 +30,8 @@
             } else {
                 // Se a senha estiver incorreta, exibe uma mensagem de erro e tenta novamente
                 alert("Senha incorreta. Acesso negado.");
-                // Redireciona para fora ou recarrega a página para pedir novamente
-                // window.location.reload(); // Descomente para recarregar a página e pedir a senha novamente
+                // Redireciona para uma página em branco ou recarrega para pedir a senha novamente
+                // window.location.reload(); // Descomente esta linha para recarregar a página
                 window.location.href = "about:blank"; // Redireciona para uma página em branco
             }
         }
@@ -45,16 +42,13 @@
             document.body.classList.add('hidden-content');
             pedirSenha(); // Chama a função para pedir a senha
         });
-
-        // --- FIM DO CÓDIGO DA SENHA ---
     </script>
 </head>
-<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+<body class="hidden-content bg-gray-100 font-sans leading-normal tracking-normal">
     <nav class="bg-blue-800 p-4 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
             <a href="index.html" class="text-white text-2xl font-bold">Repositório de Documentos - IF</a>
             <div class="flex space-x-4">
-                <a href="index.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Início</a>
                 <a href="informes_gerais.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Informes Gerais</a>
                 <a href="planos_protocolos.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Planos e Protocolos</a>
                 <a href="contatos_emergencias.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contatos e Emergências</a>
